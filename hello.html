@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Offline Bootstrap</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="jumbotron text-center">
+  		<h1>My Offline Bootstrap Page</h1>
+  		<p>This page is using local Bootstrap CSS and JS files</p>
+	</div>
+</body>
+<script type="text/javascript">
+
+	var ajxReq = $.ajax( { url : "http://localhost:9090/core/",
+		contentType : 'application/json',
+		dataType : 'json',
+		headers: {"Accepts": "text/plain; charset=utf-8", "Origin" : "http://localhost:3000"}
+		});
+	ajxReq.success( function ( data, status, jqXhr ) {
+		console.log("Response: \n");
+		console.log(data);
+	});
+</script>
+</html>
